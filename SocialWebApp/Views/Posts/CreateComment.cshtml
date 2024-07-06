@@ -1,0 +1,37 @@
+﻿@using SocialWebApp.ViewModels;
+@model Comment;
+<div class="row">
+    <div class="col-md-8 mx-auto rounded border p-6">
+
+        <div class="div-post">
+            <div class="row-between">
+                <label class="col-sm-4 col-form-label">Статья</label>
+                <div class="card">
+                    <div>@ViewData["PostId"]</div>
+                    <div>@ViewData["Title"]</div>
+                    <div>@ViewData["Description"]</div></div>
+            </div>
+        </div>
+       
+        <form asp-action="CreateComment" method="post" asp-Controller="Posts" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Комментарий</label>
+                <div>
+                    <textarea class="form-control" asp-for="Content"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-primary" asp-controller="Posts" asp-route-id="@ViewData["PostId"]" asp-action="CreateComment">Отправить</button>
+                </div>
+
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-outline-primary" asp-Controller="Posts" asp-action="Index">Отмена</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

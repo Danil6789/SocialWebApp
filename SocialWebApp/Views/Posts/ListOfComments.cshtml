@@ -1,0 +1,21 @@
+﻿@model List<Comment>
+@{
+
+}
+
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        @if (Model != null)
+        {
+            int i = 1;
+            @foreach (var comment in Model)
+            {
+                <div class="row">
+                    <span>@i.</span>
+                    <span>@comment.Content</span>
+                </div>
+                i++;
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,55 @@
+﻿@using SocialWebApp.ViewModels;
+@model PostVM;
+@{
+    ViewData["Title"] = "Создание поста";
+}
+<div class="row">
+    <div class="col-md-8 mx-auto rounded border p-6">
+        <h2 class="text-center mb-5">Изменение статьи</h2>
+
+        <form asp-action="Edit" mothod="post" asp-Controller="Posts" asp-action="Edit" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Id</label>
+                <div>
+                    <input class="form-control-plaintext" readonly value=@ViewData["postId"]>
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Заголовок</label>
+                <div>
+                    <input class="form-control" asp-for="Title"/>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Описание</label>
+                <div>
+                    <textarea class="form-control" asp-for="Description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Изображение</label>
+                <div>
+                    <input class="form-control" asp-for="ImageFile" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-primary" asp-controller="Posts" asp-action="Edit">Изменить</button>
+                </div>
+
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-outline-primary" asp-Controller="Posts" asp-action="Index">Отмена</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

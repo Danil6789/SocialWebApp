@@ -1,0 +1,12 @@
+﻿﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<AppUser> signInManager;
+@{
+    ViewData["Title"] = "Учётная запись";
+}
+<div>
+    <span>@User.Identity!.Name</span>
+    <form>
+        <label>Описание</label>
+        <textarea type="" name="name">
+    </form>
+</div>

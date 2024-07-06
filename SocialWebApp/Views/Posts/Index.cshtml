@@ -1,0 +1,67 @@
+﻿@using SocialWebApp.Models;
+@using System.Linq;
+@model List<Post>
+@{
+    ViewData["Title"] = "Учётная запись";
+    //var comments = TempData["Comments"];
+}
+<div>
+    <h2 class="text-center mb-5">Список постов</h2>
+    <div>
+        <a btn btn-primary asp-controller="Posts" asp-action="Create">Создать Пост</a>
+    </div>
+    <div>
+        <div>
+            <div class="row">
+
+                @foreach (var post in Model)
+                {
+                    <div class="div-post">
+                        <div class="row-between">
+                            <div class="card">
+                                <div>@post.PostId</div>
+                                <div>@post.Title</div>
+                                <div>@post.Description</div>
+                            </div>
+                            <a btn btn-primary asp-controller="Posts" asp-action="Delete" asp-route-id="@post.PostId">Удалить</a>
+                            <a btn btn-primary asp-controller="Posts" asp-action="Edit" asp-route-id="@post.PostId">Редактировать</a>
+                            <a btn btn-primary asp-controller="Posts" asp-action="CreateComment" asp-route-id="@post.PostId">Написать комментарий</a>
+                            <a btn btn-primary asp-controller="Posts" asp-action="ListOfComments" asp-route-id="@post.PostId">Комментарии</a>
+                        </div>
+                    </div>
+                }
+
+                
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+
+
+
+
+@* <div class="row mb-5">
+    <div class="col">
+        <a btn btn-primary asp-controller="Posts" asp-action="">Написать Пост</a>
+    </div>
+        <div class="col">
+        </div>
+</div>
+
+
+<table>
+    <thead>
+
+    </thead>
+    <tbody>
+        @foreach(var post in Model)
+            {
+                <td>@post.PostId</td>
+                <td>@post.Title</td>
+                
+            }
+        </tbody>
+</table>
+ *@
